@@ -81,6 +81,7 @@ $(document).ready(function (){
        const result = DeleteData(Number(rateid))
        result.onsuccess = function () {
         $('#list_rest').empty()
+        navigator.beep(1)
            LoadHome()
        }
     })

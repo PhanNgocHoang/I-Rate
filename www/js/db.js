@@ -66,9 +66,7 @@ request.onsuccess = function(event) {
     $('#rate').each(function () {
       this.reset()
    })
-   Newdata.onerror = () => {
-      alert("Error post your rate")
-   }
+   navigator.beep(1)
   }
   Newdata.onerror = () =>{
      alert('Error Rate')
