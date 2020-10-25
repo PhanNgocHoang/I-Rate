@@ -26,17 +26,6 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -48,28 +37,180 @@
 </head>
 
 <body>
-    <div class="app">
-        <div class="jumbotron">
-            <div class="container text-center">
-            <h1 style="font-size:25px"><img src="https://img.icons8.com/dusk/64/000000/angry-face.png"/>IRate</h1>
-            </div>
+    <div data-role="page" id="home">
+        <div data-role="header">
+            <div class="jumbotron">
+                <div class="container text-center">
+                <h1 style="font-size:25px"><img src="https://img.icons8.com/dusk/64/000000/angry-face.png"/>IRate</h1>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-sm bg-light navbar-light d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
+              </nav>
+        </div>
+        <div data-role="main" class="ui-content container">
+            <div class="row" data-role="listview" id="pageContent">
+                <div class="container py-5">
+                    <div class="row text-center mb-5">
+                        <div class="col-lg-7 mx-auto">
+                            <h5 class="display-4">Restaurant List</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+
+                            <ul class="list-group shadow" id="list_rest">
+                                      
+                            </ul> 
+                        </div>
+                    </div>
+                </div> 
+          </div>  
           </div>
-          <nav class="navbar navbar-expand-sm bg-light navbar-light">
-                <button  style="width:30%; background-color: #00ff80;" id="home">Home<i class="fa fa-home" aria-hidden="true"></i></button>
-                <button  style="width:40%; background-color: #66ccff" id="search">Search<i class="fa fa-search" aria-hidden="true"></i></button>
-                <button  style="width:30% ; background-color: #ff8000" id="add">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button>
-          </nav>
-          
-          <div class="container" id="content">    
-          </div><br>
-          <footer class="container-fluid text-center">
+        <div data-role="footer" class="container-fluid text-center">
             <div class="d-flex justify-content-center">
-                <button  style="width:30%; background-color: #00ff80;" id="home">Home<i class="fa fa-home" aria-hidden="true"></i></button>
-                <button  style="width:40%; background-color: #66ccff" id="search">Search<i class="fa fa-search" aria-hidden="true"></i></button>
-                <button  style="width:30% ; background-color: #ff8000" id="add">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button>
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
             </div>
-          </footer>
-    </div>
+        </div>
+      </div>
+
+
+
+      <div data-role="page" id="add">
+        <div data-role="header">
+            <div class="jumbotron">
+                <div class="container text-center">
+                <h1 style="font-size:25px"><img src="https://img.icons8.com/dusk/64/000000/angry-face.png"/>IRate</h1>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-sm bg-light navbar-light d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
+        </div>
+        <div data-role="main" class="ui-content container">
+            <div class="row" data-role="listview" id="pageContent">
+                <div class="container" id="addContent"> 
+                    <h2>Rated</h2>
+                    <form id="rate">
+                        <div >
+                            <div class="form-group">
+                                <label>Your name</label>
+                                <input type="text" class="form-control"  placeholder="Enter your name" id="owner_name" required pattern="^(?=[a-zA-Z]{3,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" title="Please only enter text">
+                            </div>
+                            <div class="form-group">
+                                <label>Your phone</label>
+                                <input type="text" class="form-control" placeholder="Enter your phone" id="owner_phone"  required>
+                            </div>
+                            <div class="form-group">
+                                <label>Restaurant name</label>
+                                <input type="text" class="form-control"  placeholder="Enter restaurant name" id="restaurant_name">
+                            </div>
+                            <div class="form-group">
+                                <label>Restaurant type</label>
+                                <input  id="res-types"  list= "res-type" type="text" required/>
+                                <datalist id="res-type">
+                                    <option value="Grill">
+                                    <option value="Fast food">
+                                    <option value="Cake">
+                                    <option value="Seafood">
+                                </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Restaurant address</label>
+                                <input type="text" class="form-control"  placeholder="Enter restaurant address" id="res_address" required>
+                            </div>
+                            <div class="form-group" id="image_upload">
+                                <label>Image</label>
+                                <input type="file" id="files" name="files" multiple capture>
+                            </div>
+                            <div class="form-group">
+                                <label>Service</label>
+                                <input list="services"  id="service_rate"  type= "text" required>
+                                    <datalist id="services">
+                                        <option value="Bad">
+                                        <option value="Normal">
+                                        <option value="Rather">
+                                        <option value="Good">
+                                        <option value="Excellent">
+                                    </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Cleanliness</label>
+                                <input list="cleans"  id="clean_rate" type = "text"required>
+                                <datalist id="cleans">
+                                        <option value="Bad">
+                                        <option value="Normal">
+                                        <option value="Rather">
+                                        <option value="Good">
+                                        <option value="Excellent">
+                                </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Food quality</label>
+                                <input list="foods"  id="food_rate" type = "text"required>
+                                    <datalist id="foods">
+                                        <option value="Bad">
+                                        <option value="Normal">
+                                        <option value="Rather">
+                                        <option value="Good">
+                                        <option value="Excellent">
+                                    </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label>Day and time of visit</label>
+                                <input type="date" class="form-control" id="date" required>
+                                <input type="time" class="form-control"  id="time" required>
+                            </div>
+                            <div class="form-group">
+                            <label >Notes</label>
+                            <textarea class="form-control" id="notes" rows="3"></textarea>
+                        </div>
+                        <button type="submit" style="background-color: #248f24; color: white;">Post</button>
+                        </div>
+                    </form>
+                  </div>
+          </div>  
+        </div>
+        <div data-role="footer" class="container-fluid text-center">
+            <div class="d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
+            </div>
+        </div>
+      </div>
+      <div data-role="page" id="search">
+        <div data-role="header">
+            <div class="jumbotron">
+                <div class="container text-center">
+                <h1 style="font-size:25px"><img src="https://img.icons8.com/dusk/64/000000/angry-face.png"/>IRate</h1>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-sm bg-light navbar-light d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>              
+            </nav>
+        </div>
+        <div data-role="main" class="ui-content container">
+            <div class="mg-0" data-role="listview">
+                <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search Restaurant..." data-inset="true" id="filter-search">
+                </ul>
+             </div>  
+        </div>
+        <div data-role="footer" class="container-fluid text-center">
+            <div class="d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
+            </div>
+        </div>
+      </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>

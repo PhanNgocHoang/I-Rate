@@ -65,26 +65,20 @@ request.onsuccess = function(event) {
       let html = `<div class="alert alert-primary" role="alert">
       Your feedback has been posted
     </div>`
-      LoadAdd()
-    $('#content').append(html)
+    window.localStorage = "#add"
+    $('#rate').each(function () {
+      this.reset()
+   })
+      $('#addContent').prepend(html)
   }
   Newdata.onerror = () =>{
      alert('Error Rate')
   }
  }
  function DeleteData(data) {
-   const dataDelete = db.transaction(["Irate"], "readwrite").
-   objectStore("Irate").delete(Number(data))
-   dataDelete.onsuccess = function (){
-      playMedia('../media/are-you-kidding-488.mp3')
-      LoadHome()
-   }
+   const dataDelete = db.transaction(["Irate"], "readwrite").objectStore("Irate").delete(data)
    dataDelete.onerror = function(){
       alert("Error deleting")
    }
- }
- function Search (data) {
-    return db.transaction(["Irate"], "readonly")
-    .objectStore("Irate").openCursor(IDBKeyRange.bound(data, data + '\uffff'), 'prev')
-
+   return dataDelete
  }
