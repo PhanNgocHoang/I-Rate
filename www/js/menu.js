@@ -52,8 +52,8 @@ $( window ).on( "load", function () {
 });
 
 $(document).ready(function (){
-    $('#homepage').on('click', () =>{
-        $('#list_rest').empty()
+    $('#homepage').on('click',async () =>{
+        await $('#list_rest').empty()
         LoadHome()
     })
         $('#rate').on('submit', ()=>{
@@ -80,6 +80,7 @@ $(document).ready(function (){
         navigator.vibrate(100)
        const result = DeleteData(Number(rateid))
        result.onsuccess = function () {
+        $('#list_rest').empty()
            LoadHome()
        }
     })

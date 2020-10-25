@@ -59,17 +59,16 @@ request.onsuccess = function(event) {
     request = objectStore.getAll();
     return request
  }
- function addData(collectionName, data) {
-    const Newdata = db.transaction([collectionName], "readwrite").objectStore(collectionName).add(data)
+ async function addData(collectionName, data) {
+    const Newdata = await db.transaction([collectionName], "readwrite").objectStore(collectionName).add(data)
     Newdata.onsuccess = () => {
-      let html = `<div class="alert alert-primary" role="alert">
-      Your feedback has been posted
-    </div>`
     window.localStorage = "#add"
     $('#rate').each(function () {
       this.reset()
    })
-      $('#addContent').prepend(html)
+   Newdata.onerror = () => {
+      alert("Error post your rate")
+   }
   }
   Newdata.onerror = () =>{
      alert('Error Rate')
