@@ -1,8 +1,8 @@
-function playMedia(url) {
-    const media = new Media(url)
-    media.play()
-    media.setVolume("0.0")
-}
+// function playMedia(url) {
+//     const media = new Media(url)
+//     media.play()
+//     media.setVolume("1.0")
+// }
 function LoadHome(){
     const resType = getAllData("Irate")
     resType.onsuccess = (event) => {
@@ -38,7 +38,7 @@ function LoadHome(){
                         </tr>
                     </table>
                 </div>
-                <button class="btn btn-danger" rateId="${results[i].id}" id="delete_rate"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                <button class="btn btn-danger" style="background-color: #c72333; color: #ffffff"rateId="${results[i].id}" id="delete_rate"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </div>
         </div> <!-- End -->
             </li> <!-- End -->`
@@ -53,7 +53,7 @@ $( window ).on( "load", function () {
 
 $(document).ready(function (){
     $('#homepage').on('click',async () =>{
-        await $('#list_rest').empty()
+        $('#list_rest').empty()
         LoadHome()
     })
         $('#rate').on('submit', ()=>{
@@ -77,11 +77,11 @@ $(document).ready(function (){
       
     $(document).on('click', '#delete_rate', function () {
         const rateid =  $(this).attr("rateId")
-        navigator.vibrate(100)
        const result = DeleteData(Number(rateid))
        result.onsuccess = function () {
         $('#list_rest').empty()
-        navigator.beep(1)
+        navigator.notification.beep(1);
+        navigator.vibrate(100)
            LoadHome()
        }
     })
