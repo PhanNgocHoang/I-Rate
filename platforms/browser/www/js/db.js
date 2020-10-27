@@ -3,41 +3,37 @@ const listRes = [
       res_name: 'Restaurant 1',
       res_type: 'fast food',
       owner: "Owner test 1",
-      service_rate: "Good",
-      clean_rate: "Good",
-      food_rate: "Good",
+      service_rate: 4,
+      clean_rate: 3,
+      food_rate: 3,
       notes: "",
-      image: ['https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg', 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg']
    }, 
    {
-      res_name: 'Restaurant 1',
+      res_name: 'Restaurant 2',
       res_type: 'fast food',
       owner: "Owner test 1",
-      service_rate: "Good",
-      clean_rate: "Good",
-      food_rate: "Good",
+      service_rate: 4,
+      clean_rate: 1,
+      food_rate: 4,
       notes: "",
-      image: ['https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg', 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg']
    },
    {
-      res_name: 'Restaurant 1',
+      res_name: 'Restaurant 3',
       res_type: 'fast food',
       owner: "Owner test 1",
-      service_rate: "Good",
-      clean_rate: "Good",
-      food_rate: "Good",
+      service_rate: 4,
+      clean_rate: 4,
+      food_rate: 4,
       notes: "",
-      image: ['https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg', 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg']
    },
    {
-      res_name: 'Restaurant 1',
+      res_name: 'Restaurant 4',
       res_type: 'fast food',
       owner: "Owner test 1",
-      service_rate: "Good",
-      clean_rate: "Good",
-      food_rate: "Good",
+      service_rate: 4,
+      clean_rate: 4,
+      food_rate: 4,
       notes: "",
-      image: ['https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg', 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Teremok_fast_food_restaurant_Saint_Petersburg.jpg']
    }
 ]
 var db;
@@ -82,4 +78,11 @@ request.onsuccess = function(event) {
       alert("Error deleting")
    }
    return dataDelete
+ }
+ function GetDetails(data) {
+    const dataGet = db.transaction(["Irate"], "readonly").objectStore("Irate").get(Number(data))
+    dataGet.onerror = function(){
+       alert("Error getting")
+    }
+    return dataGet
  }

@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>IRate</title>
 </head>
 
@@ -98,21 +99,21 @@
                     <h2>Rated</h2>
                     <form id="rate">
                         <div >
-                            <div class="form-group">
+                            <div class="form-group" id="owner">
                                 <label>Your name</label>
-                                <input type="text" class="form-control"  placeholder="Enter your name" id="owner_name" required pattern="^(?=[a-zA-Z]{3,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" title="Please only enter text">
+                                <input type="text" class="form-control"  placeholder="Enter your name" id="owner_name" title="Please only enter text">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="phone">
                                 <label>Your phone</label>
-                                <input type="text" class="form-control" placeholder="Enter your phone" id="owner_phone"  required>
+                                <input type="text" class="form-control" placeholder="Enter your phone" id="owner_phone"  >
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="rest-name">
                                 <label>Restaurant name</label>
                                 <input type="text" class="form-control"  placeholder="Enter restaurant name" id="restaurant_name">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="resType">
                                 <label>Restaurant type</label>
-                                <input  id="res-types"  list= "res-type" type="text" required/>
+                                <input  id="res-types"  list= "res-type" type="text"/>
                                 <datalist id="res-type">
                                     <option value="Grill">
                                     <option value="Fast food">
@@ -120,17 +121,13 @@
                                     <option value="Seafood">
                                 </datalist>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="address">
                                 <label>Restaurant address</label>
-                                <input type="text" class="form-control"  placeholder="Enter restaurant address" id="res_address" required>
+                                <input type="text" class="form-control"  placeholder="Enter restaurant address" id="res_address" >
                             </div>
-                            <div class="form-group" id="image_upload">
-                                <label>Image</label>
-                                <input type="file" id="files" name="files" multiple capture>
-                            </div>
-                            <div class="form-group">
+                            <div class="form-group" id="rate-services">
                                 <label>Service</label>
-                                <input list="services"  id="service_rate"  type= "text" required>
+                                <input list="services"  id="service_rate"  type= "text" >
                                     <datalist id="services">
                                         <option value="Bad">
                                         <option value="Normal">
@@ -139,9 +136,9 @@
                                         <option value="Excellent">
                                     </datalist>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="rate-cleans">
                                 <label>Cleanliness</label>
-                                <input list="cleans"  id="clean_rate" type = "text"required>
+                                <input list="cleans"  id="clean_rate" type = "text" >
                                 <datalist id="cleans">
                                         <option value="Bad">
                                         <option value="Normal">
@@ -150,9 +147,9 @@
                                         <option value="Excellent">
                                 </datalist>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="foods-rate">
                                 <label>Food quality</label>
-                                <input list="foods"  id="food_rate" type = "text"required>
+                                <input list="foods"  id="food_rate" type = "text">
                                     <datalist id="foods">
                                         <option value="Bad">
                                         <option value="Normal">
@@ -163,8 +160,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Day and time of visit</label>
-                                <input type="date" class="form-control" id="date" required>
-                                <input type="time" class="form-control"  id="time" required>
+                                <div id="date-visit">
+                                <input type="date" class="form-control" id="date" >
+                                </div>
+                                <div id="time-visit">
+                                    <input type="time" class="form-control"  id="time" >
+                                </div>
                             </div>
                             <div class="form-group">
                             <label >Notes</label>
@@ -215,11 +216,38 @@
             </div>
         </div>
       </div>
+
+      <div data-role="page" id="detail">
+        <div data-role="header">
+            <div class="jumbotron">
+                <div class="container text-center">
+                <h1 style="font-size:25px"><img src="https://img.icons8.com/dusk/64/000000/angry-face.png"/>IRate</h1>
+                </div>
+              </div>
+              <nav class="navbar navbar-expand-sm bg-light navbar-light d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>              
+            </nav>
+        </div>
+        <div data-role="main" class="ui-content container">
+            <div class="mg-0" data-role="listview" id="detailContent">
+
+            </div>  
+        </div>
+        <div data-role="footer" class="container-fluid text-center" id="footer">
+            <div class="d-flex justify-content-center">
+                <a href="#home" id="homepage"><button  style=" background-color: #00ff80;">Home<i class="fa fa-home" aria-hidden="true"></i></button></a>
+                <a href="#search"><button  style="background-color: #66ccff" >Search<i class="fa fa-search" aria-hidden="true"></i></button></a>
+                <a href="#add"> <button  style="background-color: #ff8000">Rated<i class="fa fa-plus-square-o" aria-hidden="true"></i></button></a>
+            </div>
+        </div>
+      </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/menu.js"></script>
-    <script type="text/javascript" src="js/camera.js"></script>
     <script type="text/javascript" src="js/db.js"></script> 
+    <script type="text/javascript" src="js/utils.js"></script> 
     <script type="text/javascript">
         app.initialize();
     </script>
