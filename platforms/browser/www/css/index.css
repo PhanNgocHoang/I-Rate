@@ -146,3 +146,7 @@ h1 {
     border-radius: 8px;
     border: 1px solid red
 }
+.error {
+    color:red;
+    font-size: 5px;
+}

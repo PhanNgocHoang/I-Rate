@@ -28,7 +28,7 @@ function LoadHome(){
                             </li>
                             <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #ffcc66; width:100%;">
                                 <b style="background-color: #ffcc66">Average</b>
-                                <div class="ml-1"><span>${parseFloat((results[i].food_rate + results[i].clean_rate + results[i].service_rate)/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
+                                <div class="ml-1"><span>${parseFloat((Number(results[i].food_rate) + Number(results[i].clean_rate) + Number(results[i].service_rate))/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
                             </li>
                         </ul>
                         
@@ -55,39 +55,99 @@ $(document).ready(function (){
         $('#list_rest').empty()
         LoadHome()
     })
-        $('#rate').on('submit', ()=>{
-            const rate = {
-                owner: $('#owner_name').val().trim(),
-                owner_phone: $('#owner_phone').val().trim(),
-                res_name: $('#restaurant_name').val().trim(),
-                res_type: $('#res-types').val().trim(),
-                res_address: $('#res_address').val().trim(),
-                service_rate: $('#service_rate').val().trim(),
-                clean_rate: $('#clean_rate').val().trim(),
-                food_rate: $('#food_rate').val().trim(),
-                date_visited: $('#date').val() + " " + $('#time').val(),
-                notes: $('#notes').val(),
-            }
-            const validateResults = [
-                validateData(rate.owner, "#owner", "Missing Your Name"),
-                validateData(rate.owner_phone, "#phone", "Missing Your phone"),
-                validateData(rate.res_name, "#rest-name", "Missing Restaurant Name"),
-                validateData(rate.res_type, "#resType", "Missing Restaurant Type"),
-                validateData(rate.res_address, "#address", "Missing Restaurant Address"),
-                validateData(rate.service_rate, "#rate-services", "Missing Service Rate"),
-                validateData(rate.clean_rate, "#rate-cleans", "Missing Clean Rate"),
-                validateData(rate.food_rate, "#foods-rate", "Missing Food Rate"),
-                validateData($('#date').val(), "#date-visit", "Missing Date"),
-                validateData($('#time').val(), "#time-visit", "Missing Time")
-            ]
-            if(checkValidData(validateResults)){
-                navigator.vibrate(100)
-                // addData("Irate", rate)
-                return false
-            }
-            return false
+            $("form[name='rate']").validate({
+                rules: {
+                    owner_name: {
+                        required: true
+                    },
+                    owner_phone: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 11
+                    },
+                    restaurant_name: {
+                        required: true
+                    },
+                    res_types: {
+                        required: true
+                    },
+                    res_address:{
+                        required: true
+                    },
+                    service_rate:{
+                        required: true,
+                        number: true,
+                    },
+                    clean_rate:{
+                        required: true,
+                        number: true
+                    },
+                    foods_rate:{
+                        required: true,
+                        number: true
+                    },
+                    date:{
+                        required: true,
+                    },
+                    time:{
+                        required: true
+                    }
 
-        })
+                },
+                messages: {
+                    owner_name: {
+                        required: "Please enter your first name."
+                    },
+                    owner_phone: {
+                        required: "Please enter your phone.",
+                        minlength: "Phone number is at least 10 characters",
+                        maxlength: "Phone number must not exceed 11 characters "
+                    },
+                    restaurant_name: {
+                        required: "Please enter restaurant name."
+                    },
+                    res_types:{
+                        required: "Please enter your restaurant type"
+                    },
+                    res_address:{
+                        required: "Please enter restaurant address"
+                    },
+                    service_rate :{
+                        required: "Please choose service rate"
+                    },
+                    clean_rate:{
+                        required: "Please choose clean rate"
+                    },
+                    foods_rate:{
+                        required: "Please choose food rate"
+                    },
+                    date:{
+                        required: "Please choose the date you visited"
+                    },
+                    time:{
+                        required: "Please choose the time you visited"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent().prev());
+                },
+                submitHandler: function () {
+                    const rate = {
+                                owner: $('#owner_name').val(),
+                                owner_phone: $('#owner_phone').val(),
+                                res_name: $('#restaurant_name').val(),
+                                res_types: $('#res-types').val(),
+                                res_address: $('#res_address').val(),
+                                service_rate: $('#service_rate').val(),
+                                clean_rate: $('#clean_rate').val(),
+                                food_rate: $('#food_rate').val(),
+                                date_visited: $('#date').val() + " " + $('#time').val(),
+                                notes: $('#notes').val(),
+                            }
+                            addData("Irate", rate)
+                            return false
+                }
+            });
       
     $(document).on('click', '#delete_rate', function () {
         const rateid =  $(this).attr("rateId")

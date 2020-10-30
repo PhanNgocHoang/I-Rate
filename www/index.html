@@ -34,6 +34,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <title>IRate</title>
 </head>
 
@@ -97,23 +98,23 @@
             <div class="row" data-role="listview" id="pageContent">
                 <div class="container" id="addContent"> 
                     <h2>Rated</h2>
-                    <form id="rate">
+                    <form id="rate" name="rate">
                         <div >
-                            <div class="form-group" id="owner">
+                            <div class="form-group" id="owner" data-role="fieldcontain">
                                 <label>Your name</label>
-                                <input type="text" class="form-control"  placeholder="Enter your name" id="owner_name" title="Please only enter text">
+                                <input type="text" class="form-control" name="owner_name"  placeholder="Enter your name" id="owner_name" title="Please only enter text">
                             </div>
-                            <div class="form-group" id="phone">
+                            <div class="form-group" id="phone" data-role="fieldcontain">
                                 <label>Your phone</label>
-                                <input type="text" class="form-control" placeholder="Enter your phone" id="owner_phone"  >
+                                <input type="text" class="form-control" name="owner_phone" placeholder="Enter your phone" id="owner_phone"  >
                             </div>
-                            <div class="form-group" id="rest-name">
+                            <div class="form-group" id="rest-name" data-role="fieldcontain">
                                 <label>Restaurant name</label>
-                                <input type="text" class="form-control"  placeholder="Enter restaurant name" id="restaurant_name">
+                                <input type="text" class="form-control" name="restaurant_name"  placeholder="Enter restaurant name" id="restaurant_name">
                             </div>
-                            <div class="form-group" id="resType">
+                            <div class="form-group" id="resType" data-role="fieldcontain">
                                 <label>Restaurant type</label>
-                                <input  id="res-types"  list= "res-type" type="text"/>
+                                <input  id="res_types"  name="res_types" list= "res-type" type="text"/>
                                 <datalist id="res-type">
                                     <option value="Grill">
                                     <option value="Fast food">
@@ -121,58 +122,58 @@
                                     <option value="Seafood">
                                 </datalist>
                             </div>
-                            <div class="form-group" id="address">
+                            <div class="form-group" id="address" data-role="fieldcontain">
                                 <label>Restaurant address</label>
-                                <input type="text" class="form-control"  placeholder="Enter restaurant address" id="res_address" >
+                                <input type="text" class="form-control" name="res_address"  placeholder="Enter restaurant address" id="res_address" >
                             </div>
-                            <div class="form-group" id="rate-services">
+                            <div class="form-group" id="rate-services" data-role="fieldcontain">
                                 <label>Service</label>
-                                <input list="services"  id="service_rate"  type= "text" >
+                                <input list="services"  id="service_rate"  name="service_rate" type= "text" >
                                     <datalist id="services">
-                                        <option value="Bad">
-                                        <option value="Normal">
-                                        <option value="Rather">
-                                        <option value="Good">
-                                        <option value="Excellent">
+                                        <option value="1">
+                                        <option value="2">
+                                        <option value="3">
+                                        <option value="4">
+                                        <option value="5">
                                     </datalist>
                             </div>
-                            <div class="form-group" id="rate-cleans">
+                            <div class="form-group" id="rate-cleans" data-role="fieldcontain">
                                 <label>Cleanliness</label>
                                 
-                                <input list="cleans"  id="clean_rate" type = "text" >
+                                <input list="cleans"  id="clean_rate" name="clean_rate" type = "text" >
                                 <datalist id="cleans">
-                                        <option value="Bad">
-                                        <option value="Normal">
-                                        <option value="Rather">
-                                        <option value="Good">
-                                        <option value="Excellent">
+                                        <option value="1">
+                                        <option value="2">
+                                        <option value="3">
+                                        <option value="4">
+                                        <option value="5">
                                 </datalist>
                             </div>
-                            <div class="form-group" id="foods-rate">
+                            <div class="form-group" id="foods-rate" data-role="fieldcontain">
                                 <label>Food quality</label>
-                                <input list="foods"  id="food_rate" type = "text">
+                                <input list="foods"  id="food_rate" name="foods_rate" type="text">
                                     <datalist id="foods">
-                                        <option value="Bad">
-                                        <option value="Normal">
-                                        <option value="Rather">
-                                        <option value="Good">
-                                        <option value="Excellent">
+                                         <option value="1">
+                                            <option value="2">
+                                            <option value="3">
+                                            <option value="4">
+                                            <option value="5">
                                     </datalist>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" data-role="fieldcontain">
                                 <label>Day and time of visit</label>
                                 <div id="date-visit">
-                                <input type="date" class="form-control" id="date" >
+                                <input type="date" class="form-control" id="date" name="date">
                                 </div>
                                 <div id="time-visit">
-                                    <input type="time" class="form-control"  id="time" >
+                                    <input type="time" class="form-control"  id="time"  name="time">
                                 </div>
                             </div>
                             <div class="form-group">
                             <label >Notes</label>
-                            <textarea class="form-control" id="notes" rows="3"></textarea>
+                            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                         </div>
-                        <button type="submit" style="background-color: #248f24; color: white;">Post</button>
+                        <button data-role="submit" type="submit" style="background-color: #248f24; color: white;">Post</button>
                         </div>
                     </form>
                   </div>
