@@ -136,4 +136,13 @@ h1 {
  .checked {
     color: orange;
   }
-
+.colum-rate{
+    margin-top: 14px;
+}
+.rate {
+    border-radius: 12px;
+}
+.note {
+    border-radius: 8px;
+    border: 1px solid red
+}
