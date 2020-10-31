@@ -188,7 +188,7 @@ $(document).ready(function (){
                       </li>
                       <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #ffcc66; width:100%;">
                           <b style="background-color: #ffcc66">Average</b>
-                          <div class="ml-1"><span>${parseFloat((restDetails.food_rate + restDetails.clean_rate + restDetails.service_rate)/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
+                          <div class="ml-1"><span>${parseFloat((Number(results[i].food_rate) + Number(results[i].clean_rate) + Number(results[i].service_rate))/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
                       </li>
                   </ul>
                   <div>
