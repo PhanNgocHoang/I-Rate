@@ -51,11 +51,11 @@ $( window ).on( "load", function () {
 });
 
 $(document).ready(function (){
-    $('#homepage').on('click',async () =>{
+    $('#homepage').on('click', () =>{
         $('#list_rest').empty()
         LoadHome()
     })
-            $("form[name='rate']").validate({
+    $("form[name='rate']").validate({
                 rules: {
                     owner_name: {
                         required: true
@@ -173,6 +173,7 @@ $(document).ready(function (){
                       <h6 class="card-subtitle mb-2 text-muted">${restDetails.res_type}</h6>
                       <h5>${restDetails.owner}</h5>
                       <p>${restDetails.date_visited}</p>
+                      <p>Average meal price per person ${restDetails.price_average} $</p>
                       <ul class="list-group">
                       <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #66ff66">
                           <b style="background-color: #66ff66">Service</b>
@@ -188,7 +189,7 @@ $(document).ready(function (){
                       </li>
                       <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #ffcc66; width:100%;">
                           <b style="background-color: #ffcc66">Average</b>
-                          <div class="ml-1"><span>${parseFloat((restDetails.food_rate + restDetails.clean_rate + restDetails.service_rate)/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
+                          <div class="ml-1"><span>${parseFloat((Number(restDetails.food_rate) + Number(restDetails.clean_rate) + Number(restDetails.service_rate))/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
                       </li>
                   </ul>
                   <div>
