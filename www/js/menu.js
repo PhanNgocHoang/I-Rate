@@ -74,18 +74,18 @@ $(document).ready(function (){
                     res_address:{
                         required: true
                     },
-                    service_rate:{
-                        required: true,
-                        number: true,
-                    },
-                    clean_rate:{
-                        required: true,
-                        number: true
-                    },
-                    foods_rate:{
-                        required: true,
-                        number: true
-                    },
+                    // service_rate:{
+                    //     required: true,
+                    //     number: true,
+                    // },
+                    // clean_rate:{
+                    //     required: true,
+                    //     number: true
+                    // },
+                    // foods_rate:{
+                    //     required: true,
+                    //     number: true
+                    // },
                     date:{
                         required: true,
                     },
@@ -112,15 +112,15 @@ $(document).ready(function (){
                     res_address:{
                         required: "Please enter restaurant address"
                     },
-                    service_rate :{
-                        required: "Please choose service rate"
-                    },
-                    clean_rate:{
-                        required: "Please choose clean rate"
-                    },
-                    foods_rate:{
-                        required: "Please choose food rate"
-                    },
+                    // service_rate :{
+                    //     required: "Please choose service rate"
+                    // },
+                    // clean_rate:{
+                    //     required: "Please choose clean rate"
+                    // },
+                    // foods_rate:{
+                    //     required: "Please choose food rate"
+                    // },
                     date:{
                         required: "Please choose the date you visited"
                     },
