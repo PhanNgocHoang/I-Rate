@@ -37,7 +37,7 @@ function LoadHome(){
                 </div>
                 <div class="d-flex mt-5">
                     <button class="btn btn-danger d-flex justify-content-start" style="background-color: #c72333; color: #ffffff" rateId="${results[i].id}" id="delete_rate"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                     <button  class="btn btn-info-flex justify-content-start ml-5" style="background-color: #148496; color: #ffffff" rateId="${results[i].id}" id="detail" data-target="#rate_detail" data-toggle="modal"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                     <button class="btn btn-info-flex justify-content-start ml-5" style="background-color: #148496; color: #ffffff" rateId="${results[i].id}" id="detail"><i class="fa fa-eye" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div> <!-- End -->
@@ -172,52 +172,45 @@ $(document).ready(function (){
        const rateId = $(this).attr("rateId")
        const result = GetDetails(rateId)
        result.onsuccess = function (event) {
+           $(location).attr('href', "#detail")
            const restDetails = event.target.result
             const html = `
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">${restDetails.res_name}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <img src="${restDetails.imageDefault}" style="width:50%; height: 50%">
-                <p>${restDetails.res_address}</p>
-                <h6 class="card-subtitle mb-2 text-muted">${restDetails.res_type}</h6>
-                <h5>${restDetails.owner}</h5>
-                <p>${restDetails.date_visited}</p>
-                <p style="font-size: 15px">Average meal price per person ${restDetails.price_average} $</p>
-                <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #66ff66">
-                    <b style="background-color: #66ff66">Service</b>
-                    <div class="ml-1"><span>${restDetails.service_rate}</span><span class="fa fa-star checked"></span></div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #4dd2ff">
-                    <b style="background-color: #4dd2ff">Clean</b>
-                    <div class="ml-1"><span>${restDetails.clean_rate}</span><span class="fa fa-star checked"></span></div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #9966ff">
-                    <b style="background-color: #9966ff">Food</b>
-                    <div class="ml-1"><span>${restDetails.food_rate}</span><span class="fa fa-star checked"></span></div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #ffcc66; width:100%;">
-                    <b style="background-color: #ffcc66">Average</b>
-                    <div class="ml-1"><span>${parseFloat((Number(restDetails.food_rate) + Number(restDetails.clean_rate) + Number(restDetails.service_rate))/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
-                </li>
-              </ul>
-              <div>
-              <span>Note</span>
-                  <div class="note">
-                      ${restDetails.notes}
+            <div class="card ml-2 mt-4" style="width: 21.5rem;">
+                    <div class="card-body">
+                      <h4 class="card-title">${restDetails.res_name}</h4>
+                      <img src="${restDetails.imageDefault}" style="width:50%; height: 50%">
+                      <p>${restDetails.res_address}</p>
+                      <h6 class="card-subtitle mb-2 text-muted">${restDetails.res_type}</h6>
+                      <h5>${restDetails.owner}</h5>
+                      <p>${restDetails.date_visited}</p>
+                      <p>Average meal price per person ${restDetails.price_average} $</p>
+                      <ul class="list-group">
+                      <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #66ff66">
+                          <b style="background-color: #66ff66">Service</b>
+                          <div class="ml-1"><span>${restDetails.service_rate}</span><span class="fa fa-star checked"></span></div>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #4dd2ff">
+                          <b style="background-color: #4dd2ff">Clean</b>
+                          <div class="ml-1"><span>${restDetails.clean_rate}</span><span class="fa fa-star checked"></span></div>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #9966ff">
+                          <b style="background-color: #9966ff">Food</b>
+                          <div class="ml-1"><span>${restDetails.food_rate}</span><span class="fa fa-star checked"></span></div>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #ffcc66; width:100%;">
+                          <b style="background-color: #ffcc66">Average</b>
+                          <div class="ml-1"><span>${parseFloat((Number(restDetails.food_rate) + Number(restDetails.clean_rate) + Number(restDetails.service_rate))/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
+                      </li>
+                  </ul>
+                  <div>
+                    <span>Note</span>
+                        <div class="note">
+                            ${restDetails.notes}
+                        </div>
                   </div>
                 </div>
-                </div>
-            </div>`
-            
-           $('#rate_detail').empty().append(html)
+            </div>  `
+           $('#detailContent').empty().append(html)
        }
    })
 })
-
