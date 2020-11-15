@@ -184,7 +184,7 @@ $(document).ready(function (){
                       <h6 class="card-subtitle mb-2 text-muted">${restDetails.res_type}</h6>
                       <h5>${restDetails.owner}</h5>
                       <p>${restDetails.date_visited}</p>
-                      <p>Average meal price per person ${restDetails.price_average} $</p>
+                      <p style = "font-size:20px">Average meal price per person ${restDetails.price_average} $</p>
                       <ul class="list-group">
                       <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #66ff66">
                           <b style="background-color: #66ff66">Service</b>
