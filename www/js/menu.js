@@ -143,7 +143,7 @@ $(document).ready(function (){
                                 owner: $('#owner_name').val(),
                                 owner_phone: $('#owner_phone').val(),
                                 res_name: $('#restaurant_name').val(),
-                                res_types: $('#res_types').val(),
+                                res_type: $('#res_types').val(),
                                 res_address: $('#res_address').val(),
                                 service_rate: $('#service_rate').val(),
                                 clean_rate: $('#clean_rate').val(),
@@ -154,6 +154,7 @@ $(document).ready(function (){
                                 imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
                             }
                             addData("Irate", rate)
+                            console.log()
                             return false
                 }
             });
