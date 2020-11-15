@@ -1,7 +1,7 @@
 const listRes = [
    {
       res_name: 'Restaurant 1',
-      res_type: 'fast food',
+      res_type: 'Grill',
       res_address: 'Ha Noi',
       owner: "Owner test 1",
       price_average: 100,
@@ -14,7 +14,7 @@ const listRes = [
    }, 
    {
       res_name: 'Restaurant 2',
-      res_type: 'fast food',
+      res_type: 'Cake',
       res_address: 'Ha Noi',
       price_average: 100,
       imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
@@ -27,7 +27,7 @@ const listRes = [
    },
    {
       res_name: 'Restaurant 3',
-      res_type: 'fast food',
+      res_type: 'Seafood',
       res_address: 'Ha Noi',
       price_average: 100,
       imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
@@ -40,7 +40,7 @@ const listRes = [
    },
    {
       res_name: 'Restaurant 4',
-      res_type: 'fast food',
+      res_type: 'Fast food',
       res_address: 'Ha Noi',
       price_average: 100,
       imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",

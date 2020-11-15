@@ -40,6 +40,15 @@
                             <h5 class="display-4">Restaurant List</h5>
                         </div>
                     </div>
+                        <label>Filter with restaurant type</label>
+                        <input  id="res_types_filter" name="res_types" list= "res-type" type="text"/>
+                                <datalist id="res-type">
+                                    <option value="Grill">
+                                    <option value="Fast food">
+                                    <option value="Cake">
+                                    <option value="Seafood">
+                                </datalist>
+                        <button class="btn btn-primary" id="filter">Filter <i class="fa fa-filter" aria-hidden="true"></i></button>
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
 
@@ -107,37 +116,36 @@
                             </div>
                             <div class="form-group" id="rate-services" data-role="fieldcontain">
                                 <label>Service</label>
-                                <select id="service_rate"  name="service_rate" type= "text" >
-                                        <option value=""></option>
+                                <input type="number" class="form-control" name="service_rate" id="service_rate" list= "rate_services" min="1" max="5">
+                                <datalist id="rate_services">
                                         <option value="1">Bad</option>
                                         <option value="2">Normal</option>
                                         <option value="3">Rather</option>
                                         <option value="4">Good</option>
                                         <option value="5">Excellent</option>
-                                    </select>
+                                </datalist>
                             </div>
                             <div class="form-group" id="rate-cleans" data-role="fieldcontain">
-                                <label>Cleanliness</label>
-                                
-                                <select list="cleans"  id="clean_rate" name="clean_rate" type = "text" >
-                                    <option></option>
-                                    <option value="1">Bad</option>
-                                    <option value="2">Normal</option>
-                                    <option value="3">Rather</option>
-                                    <option value="4">Good</option>
-                                    <option value="5">Excellent</option>
-                                </select>
+                                <label>Cleans</label>
+                                <input type="number" class="form-control" name="clean_rate" id="clean_rate" list="cleans" min="1" max="5">
+                                <datalist id="cleans">
+                                        <option value="1">Bad</option>
+                                        <option value="2">Normal</option>
+                                        <option value="3">Rather</option>
+                                        <option value="4">Good</option>
+                                        <option value="5">Excellent</option>
+                                </datalist>
                             </div>
                             <div class="form-group" id="foods-rate" data-role="fieldcontain">
                                 <label>Food quality</label>
-                                <select list="foods"  id="food_rate" name="foods_rate" type="text">
-                                            <option></option>
-                                            <option value="1">Bad</option>
-                                            <option value="2">Normal</option>
-                                            <option value="3">Rather</option>
-                                            <option value="4">Good</option>
-                                            <option value="5">Excellent</option>
-                                        </select>
+                                <input type="number" class="form-control" ame="foods_rate" id="food_rate" list="rate_food" min="1" max="5">
+                                <datalist id="rate_food">
+                                        <option value="1">Bad</option>
+                                        <option value="2">Normal</option>
+                                        <option value="3">Rather</option>
+                                        <option value="4">Good</option>
+                                        <option value="5">Excellent</option>
+                                </datalist>
                             </div>
                             <div class="form-group" id="price" data-role="fieldcontain">
                                 <label>Average meal price: $</label>

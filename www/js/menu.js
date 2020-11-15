@@ -213,4 +213,63 @@ $(document).ready(function (){
            $('#detailContent').empty().append(html)
        }
    })
+   $('#filter').on('click', function () {
+       const filter_value = $('#res_types_filter').val()
+       if(filter_value == "") {
+        $('#list_rest').empty()
+        LoadHome()
+       }
+        const list_restaurants = getAllData("Irate")
+        list_restaurants.onsuccess = function (event) {
+            const results = event.target.result
+            const new_list_restaurants = results.filter((restaurant) => restaurant.res_type == filter_value)
+            for(var i in new_list_restaurants.reverse()) {
+                let html =`<li class="list-group-item m-2 rounded">
+            <!-- Custom content-->
+            <div class="media align-items-lg-center flex-column flex-lg-row p-3" >
+                <div class="media-body order-2 order-lg-1">
+                    <img src="${results[i].imageDefault}" style="width:50%; height: 50%">
+                    <h5 class="mt-0 font-weight-bold mb-2">${results[i].res_name}</h5>
+                    <p class="font-italic text-muted mb-0 small">${results[i].res_type}</p>
+                    <i style="background-color: #99ff66; font-size: 15px">Date visit: ${results[i].date_visited} </i>
+                    <div class="d-flex align-items-center justify-content-between mt-1">
+                        <h6 class="font-weight-bold">${results[i].owner}</h6>
+                        <div class="rate-content">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #66ff66">
+                                    <b style="background-color: #66ff66">Service</b>
+                                    <div class="ml-1"><span>${results[i].service_rate}</span><span class="fa fa-star checked"></span></div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #4dd2ff">
+                                    <b style="background-color: #4dd2ff">Clean</b>
+                                    <div class="ml-1"><span>${results[i].clean_rate}</span><span class="fa fa-star checked"></span></div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #9966ff">
+                                    <b style="background-color: #9966ff">Food</b>
+                                    <div class="ml-1"><span>${results[i].food_rate}</span><span class="fa fa-star checked"></span></div>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between rate" style="border: 2px solid #ffcc66; width:100%;">
+                                    <b style="background-color: #ffcc66">Average</b>
+                                    <div class="ml-1"><span>${parseFloat((Number(results[i].food_rate) + Number(results[i].clean_rate) + Number(results[i].service_rate))/3).toFixed(1)}</span><span class="fa fa-star checked"></span></div>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="d-flex mt-5">
+                        <button class="btn btn-danger d-flex justify-content-start" style="background-color: #c72333; color: #ffffff" rateId="${results[i].id}" id="delete_rate"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                         <button class="btn btn-info-flex justify-content-start ml-5" style="background-color: #148496; color: #ffffff" rateId="${results[i].id}" id="detail"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div> <!-- End -->
+                </li> <!-- End -->`
+                $('#list_rest').empty().append(html);
+                return false;
+            }
+            
+        }
+        list_restaurants.onerror = function (event) {
+            alert("Error loading")
+        }
+   })
 })
