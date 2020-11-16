@@ -5,7 +5,7 @@ const listRes = [
       res_address: 'Ha Noi',
       owner: "Owner test 1",
       price_average: 100,
-      imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
+      imageDefault: "https://www.creativefabrica.com/wp-content/uploads/2018/10/Chef-restaurant-logo-by-DEEMKA-STUDIO-4.jpg",
       service_rate: 4,
       clean_rate: 3,
       food_rate: 3,
@@ -17,7 +17,7 @@ const listRes = [
       res_type: 'Cake',
       res_address: 'Ha Noi',
       price_average: 100,
-      imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
+      imageDefault: "https://www.creativefabrica.com/wp-content/uploads/2018/10/Chef-restaurant-logo-by-DEEMKA-STUDIO-4.jpg",
       owner: "Owner test 1",
       service_rate: 4,
       clean_rate: 1,
@@ -30,7 +30,7 @@ const listRes = [
       res_type: 'Seafood',
       res_address: 'Ha Noi',
       price_average: 100,
-      imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
+      imageDefault: "https://www.creativefabrica.com/wp-content/uploads/2018/10/Chef-restaurant-logo-by-DEEMKA-STUDIO-4.jpg",
       owner: "Owner test 1",
       service_rate: 4,
       clean_rate: 4,
@@ -43,7 +43,7 @@ const listRes = [
       res_type: 'Fast food',
       res_address: 'Ha Noi',
       price_average: 100,
-      imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
+      imageDefault: "https://www.creativefabrica.com/wp-content/uploads/2018/10/Chef-restaurant-logo-by-DEEMKA-STUDIO-4.jpg",
       owner: "Owner test 1",
       service_rate: 4,
       clean_rate: 4,
@@ -74,7 +74,6 @@ request.onsuccess = function(event) {
  async function addData(collectionName, data) {
     const Newdata = await db.transaction([collectionName], "readwrite").objectStore(collectionName).add(data)
     Newdata.onsuccess = () => {
-    window.localStorage = "#add"
     $('#rate').each(function () {
       this.reset()
    })

@@ -85,7 +85,7 @@
         <div data-role="main" class="ui-content container">
             <div class="row" data-role="listview" id="pageContent">
                 <div class="container" id="addContent"> 
-                    <h2>Rated</h2>
+                    <h2 class="d-flex justify-content-center">Rate</h2>
                     <form id="rate" name="rate">
                         <div >
                             <div class="form-group" id="owner" data-role="fieldcontain">
@@ -138,7 +138,7 @@
                             </div>
                             <div class="form-group" id="foods-rate" data-role="fieldcontain">
                                 <label>Food quality</label>
-                                <input type="number" class="form-control" ame="foods_rate" id="food_rate" list="rate_food" min="1" max="5">
+                                <input type="number" class="form-control" name="foods_rate" id="food_rate" list="rate_food" min="1" max="5">
                                 <datalist id="rate_food">
                                         <option value="1">Bad</option>
                                         <option value="2">Normal</option>
@@ -199,8 +199,8 @@
             </nav>
         </div>
         <div data-role="main" class="ui-content container">
-            <div class="mg-0" data-role="listview">
-                <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search Restaurant..." data-inset="true" id="filter-search">
+            <div class="mg-0">
+                <ul data-role="listview" data-filter="true" data-filter-reveal="true" data-filter-placeholder="Search Restaurant...." data-inset="true" id="search-input">
                 </ul>
              </div>  
         </div>
