@@ -151,7 +151,7 @@ $(document).ready(function (){
                                 date_visited: $('#date').val() + " " + $('#time').val(),
                                 notes: $('#notes').val(),
                                 price_average: $('#price_average').val(),
-                                imageDefault: "https://www.logopik.com/wp-content/uploads/edd/2018/07/Restaurant-Logo-Vector-Design.png",
+                                imageDefault: "https://www.creativefabrica.com/wp-content/uploads/2018/10/Chef-restaurant-logo-by-DEEMKA-STUDIO-4.jpg",
                             }
                             addData("Irate", rate)
                             return false
