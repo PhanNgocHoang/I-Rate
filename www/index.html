@@ -244,6 +244,18 @@
     <script type="text/javascript" src="js/db.js"></script> 
     <script type="text/javascript">
         app.initialize();
+        jQuery.validator.addMethod('valid_phone', function(value) {
+        let regex = "(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})"
+        return value.trim().match(regex)
+        }, "Your phone number is not valid")
+        jQuery.validator.addMethod('valid_name', function(value) {
+            let regex = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+            return value.trim().match(regex)
+        })
+        jQuery.validator.addMethod('valid_money', function(value){
+            let regex = "^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$"
+            return value.trim().match(regex)
+        }, "Your price is not valid")
     </script>
 </body>
 

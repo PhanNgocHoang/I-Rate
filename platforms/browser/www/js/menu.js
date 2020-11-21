@@ -59,18 +59,20 @@ $(document).ready(function (){
     $("form[name='rate']").validate({
                 rules: {
                     owner_name: {
-                        required: true
+                        required: true,
+                        valid_name: true
                     },
                     owner_phone: {
                         required: true,
-                        minlength: 10,
-                        maxlength: 11
+                        valid_phone: true
                     },
                     restaurant_name: {
-                        required: true
+                        required: true,
+                        valid_name: true
                     },
                     res_types: {
-                        required: true
+                        required: true,
+                        valid_name: true
                     },
                     res_address:{
                         required: true
@@ -94,9 +96,9 @@ $(document).ready(function (){
                         required: true
                     },
                     price_average:{
-                        required: true
+                        required: true,
+                        valid_money: true
                     }
-
                 },
                 messages: {
                     owner_name: {
@@ -104,8 +106,7 @@ $(document).ready(function (){
                     },
                     owner_phone: {
                         required: "Please enter your phone.",
-                        minlength: "Phone number is at least 10 characters",
-                        maxlength: "Phone number must not exceed 11 characters "
+                        
                     },
                     restaurant_name: {
                         required: "Please enter restaurant name."
@@ -126,13 +127,14 @@ $(document).ready(function (){
                         required: "Please choose food rate"
                     },
                     date:{
-                        required: "Please choose the date you visited"
+                        required: "Please choose the date you visited",
                     },
                     time:{
                         required: "Please choose the time you visited"
                     },
                     price_average:{
-                        required: "Please enter the average meal price per person"
+                        required: "Please enter the average meal price per person",
+                        valid_money: true
                     }
                 },
                 errorPlacement: function (error, element) {
