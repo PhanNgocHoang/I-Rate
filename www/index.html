@@ -251,7 +251,7 @@
         jQuery.validator.addMethod('valid_name', function(value) {
             let regex = "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$"
             return value.trim().match(regex)
-        })
+        }, "Is not valid")
         jQuery.validator.addMethod('valid_money', function(value){
             let regex = "^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$"
             return value.trim().match(regex)
