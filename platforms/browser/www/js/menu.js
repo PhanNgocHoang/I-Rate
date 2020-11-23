@@ -75,7 +75,8 @@ $(document).ready(function (){
                         valid_name: true
                     },
                     res_address:{
-                        required: true
+                        required: true,
+                        valid_address: true
                     },
                     service_rate:{
                         required: true,

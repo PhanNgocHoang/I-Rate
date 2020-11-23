@@ -254,6 +254,10 @@
             let regex = "^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$"
             return value.trim().match(regex)
         }, "Your price is not valid")
+        jQuery.validator.addMethod('valid_address', function(value){
+            let regex = "^\d+\s[A-z]+\s[A-z]+"
+            return value.trim().match(regex)
+        }, "Restaurant address is not valid. Please follow 21 Nguyen Street")
     </script>
 </body>
 
