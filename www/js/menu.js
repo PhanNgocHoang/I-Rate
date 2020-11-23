@@ -161,18 +161,15 @@ $(document).ready(function (){
             });
       
     $(document).on('click', '#delete_rate', function () {
-        const rateid =  $(this).attr("rateId")
-       const result = DeleteData(Number(rateid))
-       result.onsuccess = function () {
-        $('#list_rest').empty()
-        navigator.notification.beep(1);
-        navigator.vibrate(100)
-           LoadHome()
-       }
+        const confirmResult =  confirm("Do you want to delete this rate?")
+        if (confirmResult == true){
+            const rateid =  $(this).attr("rateId")
+            deleteData("Irate" ,Number(rateid))
+        }
     })
    $(document).on('click', '#detail', function(){
        const rateId = $(this).attr("rateId")
-       const result = GetDetails(rateId)
+       const result = getDetail(rateId)
        result.onsuccess = function (event) {
            $(location).attr('href', "#detail")
            const restDetails = event.target.result
@@ -267,7 +264,6 @@ $(document).ready(function (){
             </div> <!-- End -->
                 </li> <!-- End -->`
                 $('#list_rest').empty().append(html);
-                return false;
             }
             
         }

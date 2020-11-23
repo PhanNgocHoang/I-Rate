@@ -87,7 +87,6 @@
                 <div class="container" id="addContent"> 
                     <h2 class="d-flex justify-content-center">Rate</h2>
                     <form id="rate" name="rate">
-                        <div >
                             <div class="form-group" id="owner" data-role="fieldcontain">
                                 <label>Your name</label>
                                 <input type="text" class="form-control" name="owner_name"  placeholder="Enter your name" id="owner_name">
@@ -100,14 +99,14 @@
                                 <label>Restaurant name</label>
                                 <input type="text" class="form-control" name="restaurant_name"  placeholder="Enter restaurant name" id="restaurant_name">
                             </div>
-                            <div class="form-group" id="resType" data-role="fieldcontain">
+                            <div class="form-group" id="res-types" data-role="fieldcontain">
                                 <label>Restaurant type</label>
-                                <input  id="res_types"  name="res_types" list= "res-type" type="text"/>
+                                <input  id="res_types"  name="res_types" list= "res-type" type="text" placeholder="Enter restaurant type"/>
                                 <datalist id="res-type">
-                                    <option value="Grill">
-                                    <option value="Fast food">
-                                    <option value="Cake">
-                                    <option value="Seafood">
+                                    <option value="Grill">Grill</option>
+                                    <option value="Fast food">Fast food</option>
+                                    <option value="Cake">Cake</option>
+                                    <option value="Seafood">Seafood</option>
                                 </datalist>
                             </div>
                             <div class="form-group" id="address" data-role="fieldcontain">
@@ -116,7 +115,7 @@
                             </div>
                             <div class="form-group" id="rate-services" data-role="fieldcontain">
                                 <label>Service</label>
-                                <input type="number" class="form-control" name="service_rate" id="service_rate" list= "rate_services" min="1" max="5">
+                                <input type="number" class="form-control" name="service_rate" id="service_rate" list= "rate_services" min="1" max="5" placeholder="Choose rate for services">
                                 <datalist id="rate_services">
                                         <option value="1">Bad</option>
                                         <option value="2">Normal</option>
@@ -127,7 +126,7 @@
                             </div>
                             <div class="form-group" id="rate-cleans" data-role="fieldcontain">
                                 <label>Cleans</label>
-                                <input type="number" class="form-control" name="clean_rate" id="clean_rate" list="cleans" min="1" max="5">
+                                <input type="number" class="form-control" name="clean_rate" id="clean_rate" list="cleans" min="1" max="5" placeholder="Choose rate  for cleans">
                                 <datalist id="cleans">
                                         <option value="1">Bad</option>
                                         <option value="2">Normal</option>
@@ -138,7 +137,7 @@
                             </div>
                             <div class="form-group" id="foods-rate" data-role="fieldcontain">
                                 <label>Food quality</label>
-                                <input type="number" class="form-control" name="foods_rate" id="food_rate" list="rate_food" min="1" max="5">
+                                <input type="number" class="form-control" name="foods_rate" id="food_rate" list="rate_food" min="1" max="5" placeholder="Choose rate for food quality">
                                 <datalist id="rate_food">
                                         <option value="1">Bad</option>
                                         <option value="2">Normal</option>
@@ -149,26 +148,25 @@
                             </div>
                             <div class="form-group" id="price" data-role="fieldcontain">
                                 <label>Average meal price: $</label>
-                                <input type="number" class="form-control" name="price_average"  placeholder="Average meal price per person" id="price_average">
+                                <input type="number" class="form-control" name="price_average"  placeholder="Enter the average meal price per person" id="price_average">
                             </div>
                             <div class="form-group" data-role="fieldcontain">
                                 <label>Day visited</label>
                                 <div id="date-visit">
-                                <input type="date" class="form-control" id="date" name="date">
+                                <input type="date" class="form-control" id="date" name="date" placeholder="Choose your date visited">
                                 </div>
                             </div>
                             <div class="form-group" data-role="fieldcontain">
                                 <label>Time visited</label>
                                 <div id="time-visit">
-                                    <input type="time" class="form-control"  id="time"  name="time">
+                                    <input type="time" class="form-control"  id="time"  name="time" placeholder="Choose your date visited">
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label >Notes</label>
-                            <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
-                        </div>
+                                <label >Notes</label>
+                                <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Enter your note"></textarea>
+                            </div>
                         <button data-role="submit" type="submit" style="background-color: #248f24; color: white;">Post</button>
-                        </div>
                     </form>
                   </div>
           </div>  
