@@ -103,7 +103,7 @@ $(document).ready(function (){
                 },
                 messages: {
                     owner_name: {
-                        required: "Please enter your first name."
+                        required: "Please enter your name."
                     },
                     owner_phone: {
                         required: "Please enter your phone.",
