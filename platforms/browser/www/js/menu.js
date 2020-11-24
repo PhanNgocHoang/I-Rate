@@ -36,8 +36,8 @@ function LoadHome(){
                     </div>
                 </div>
                 <div class="d-flex mt-5">
-                    <button class="btn btn-danger d-flex justify-content-start" style="background-color: #c72333; color: #ffffff" rateId="${results[i].id}" id="delete_rate"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                     <button class="btn btn-info-flex justify-content-start ml-5" style="background-color: #148496; color: #ffffff" rateId="${results[i].id}" id="detail"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    <button class="btn btn-danger-flex justify-content-start" style="background-color: #c72333; color: #ffffff" rateId="${results[i].id}" id="delete_rate"><i class="fa fa-trash-o" aria-hidden="true">Delete</i></button>
+                     <button class="btn btn-info-flex justify-content-start ml-5" style="background-color: #148496; color: #ffffff" rateId="${results[i].id}" id="detail"><i class="fa fa-eye" aria-hidden="true">Details</i></button>
                 </div>
             </div>
         </div> <!-- End -->
@@ -103,7 +103,7 @@ $(document).ready(function (){
                 },
                 messages: {
                     owner_name: {
-                        required: "Please enter your first name."
+                        required: "Please enter your name."
                     },
                     owner_phone: {
                         required: "Please enter your phone.",
