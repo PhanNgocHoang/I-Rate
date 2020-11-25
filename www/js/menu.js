@@ -229,7 +229,7 @@ $(document).ready(function (){
             <!-- Custom content-->
             <div class="media align-items-lg-center flex-column flex-lg-row p-3" >
                 <div class="media-body order-2 order-lg-1">
-                    <img src="${new_list_restaurants[i].imageDefault}" style="width:50%; height: 50%">
+                    <img src="${new_list_restaurants[i].imageDefault}" style="width:30px; height: 30px">
                     <h5 class="mt-0 font-weight-bold mb-2">${new_list_restaurants[i].res_name}</h5>
                     <p class="font-italic text-muted mb-0 small">${new_list_restaurants[i].res_type}</p>
                     <i style="background-color: #99ff66; font-size: 15px">Date visit: ${new_list_restaurants[i].date_visited} </i>
