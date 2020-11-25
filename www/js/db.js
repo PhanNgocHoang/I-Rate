@@ -47,7 +47,7 @@ async function addData(objectStoreName, data) {
    }
 }
 function deleteData(objectStoreName, dataId) {
-   const dataDelete = db.transaction([objectStoreName], "readwrite").objectStore(objectStoreName).delete(dataId)
+   const dataDelete = db.transaction([objectStoreName], "readwrite").objectStore(objectStoreName).delete(Number(dataId))
    dataDelete.onerror = function () {
       alert("Error deleting")
    }

@@ -165,12 +165,12 @@ $(document).ready(function (){
         const confirmResult =  confirm("Do you want to delete this rate?")
         if (confirmResult == true){
             const rateid =  $(this).attr("rateId")
-            deleteData("Irate" ,Number(rateid))
+            deleteData("Irate" ,rateid)
         }
     })
    $(document).on('click', '#detail', function(){
        const rateId = $(this).attr("rateId")
-       const result = getDetail(rateId)
+       const result = getDetail("Irate" ,rateId)
        result.onsuccess = function (event) {
            $(location).attr('href', "#detail")
            const restDetails = event.target.result
