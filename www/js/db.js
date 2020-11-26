@@ -13,18 +13,17 @@ const listRes =
       notes: "note Restaurant 1",
    }
 var db;
-var request = window.indexedDB.open("I-rate", 2);
+var request = window.indexedDB.open("I-rate", 2); //Create a new database include the database name and version number
 request.onupgradeneeded = function (event) {
    var db = event.target.result;
-   var objectStore = db.createObjectStore("Irate", { keyPath: "id", autoIncrement: true });
-
-      objectStore.add(listRes)
+   var objectStore = db.createObjectStore("Irate", { keyPath: "id", autoIncrement: true }); // Create a new object store to store data, set the primary key is id and it will automatically increase
+      objectStore.add(listRes) // add a template data into object store
 }
-request.onsuccess = function (event) {
+request.onsuccess = function (event) {// handle create database success
    db = request.result;
    console.log("Create database success: " + db);
 };
-request.onerror = function (event) {
+request.onerror = function (event) {// handle create database fail
    console.log("Create database error: " + db);
 }
 function getAllData(objectStoreName) {
