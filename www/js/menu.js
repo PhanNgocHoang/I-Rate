@@ -133,10 +133,6 @@ $(document).ready(function (){
                     time:{
                         required: "Please choose the time you visited"
                     },
-                    price_average:{
-                        required: "Please enter the average meal price per person",
-                        valid_money: true
-                    }
                 },
                 errorPlacement: function (error, element) {
                     error.appendTo(element.parent().prev());
